@@ -75,4 +75,32 @@ void viewExpenses(const vector<Expense>& expenses) {
     cout << "\nTotal: " << total << "\n";
 }
 
+int main() {
+    vector<Expense> expenses = loadExpenses();
 
+    while (true) {
+        cout << "\n--- Expense Tracker ---\n";
+        cout << "1. Add Expense\n";
+        cout << "2. View Expenses\n";
+        cout << "3. Exit\n";
+
+        int choice;
+        cout << "Enter choice: ";
+        cin >> choice;
+
+        if (choice == 3) {
+            cout << "Goodbye!\n";
+            break;
+        }
+
+        if (choice == 1) {
+            addExpense(expenses);
+        } else if (choice == 2) {
+            viewExpenses(expenses);
+        } else {
+            cout << "Invalid choice.\n";
+        }
+    }
+
+    return 0;
+}
